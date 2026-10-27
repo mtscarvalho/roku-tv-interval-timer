@@ -12,6 +12,9 @@ Canal Roku SceneGraph para treinos intervalados. O usuário define o tempo ativo
 - som distinto ao encerrar uma rodada;
 - pausa com **OK** e cancelamento com **Voltar**;
 - tela de conclusão com resumo do treino.
+- identidade visual em grafite, preto, vermelho e branco;
+- tipografia Poppins incorporada ao pacote sob a Open Font License.
+- transição suave de cor e fundos com cantos arredondados nos controles.
 
 ## Gerar o pacote
 
