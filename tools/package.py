@@ -10,7 +10,7 @@ from generate_assets import main as generate_assets
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "dist/intervalo-tv.zip"
-INCLUDED = ("manifest", "source", "components", "images", "audio")
+INCLUDED = ("manifest", "source", "components", "images", "audio", "fonts")
 
 
 def main() -> None:

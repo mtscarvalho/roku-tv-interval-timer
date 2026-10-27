@@ -3,41 +3,54 @@
     <script type="text/brightscript" uri="pkg:/components/MainScene.brs" />
     <children>
         <Group id="appRoot">
-        <Rectangle width="1280" height="720" color="0x07111fff" />
-        <Rectangle width="1280" height="5" color="0x43e8c0ff" />
-        <Label translation="[80,47]" width="1120" height="47" text="INTERVALO TV" color="0x43e8c0ff" font="font:MediumBoldSystemFont" />
-
+        <Font id="poppinsRegular16" uri="pkg:/fonts/Poppins-Regular.ttf" size="16" />
+        <Font id="poppinsRegular18" uri="pkg:/fonts/Poppins-Regular.ttf" size="18" />
+        <Font id="poppinsRegular20" uri="pkg:/fonts/Poppins-Regular.ttf" size="20" />
+        <Font id="poppinsSemiBold20" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="20" />
+        <Font id="poppinsSemiBold22" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="22" />
+        <Font id="poppinsSemiBold28" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="28" />
+        <Font id="poppinsSemiBold32" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="32" />
+        <Font id="poppinsSemiBold36" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="36" />
+        <Font id="poppinsSemiBold80" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="80" />
+        <Rectangle width="1280" height="720" color="0x181818ff" />
+        <Rectangle width="1280" height="5" color="0xde0b37ff" />
         <Group id="configView">
-            <Label translation="[80,117]" width="1120" height="55" text="Configure seu treino" color="0xf7fbffff" font="font:LargeBoldSystemFont" />
-            <Label translation="[81,171]" width="1120" height="31" text="Use as setas para ajustar e pressione OK para selecionar." color="0x91a4b7ff" font="font:MediumSystemFont" />
-            <Rectangle id="selection" translation="[67,230]" width="1146" height="77" color="0x13283cff" />
-            <Label translation="[93,243]" width="433" height="48" text="TEMPO ATIVO" color="0xc9d5e1ff" font="font:MediumBoldSystemFont" />
-            <Label id="workValue" translation="[693,235]" width="467" height="55" horizAlign="right" color="0xf7fbffff" font="font:LargeBoldSystemFont" />
-            <Label translation="[93,333]" width="433" height="48" text="INTERVALO" color="0xc9d5e1ff" font="font:MediumBoldSystemFont" />
-            <Label id="restValue" translation="[693,325]" width="467" height="55" horizAlign="right" color="0xf7fbffff" font="font:LargeBoldSystemFont" />
-            <Label translation="[93,423]" width="433" height="48" text="REPETIÇÕES" color="0xc9d5e1ff" font="font:MediumBoldSystemFont" />
-            <Label id="roundsValue" translation="[693,415]" width="467" height="55" horizAlign="right" color="0xf7fbffff" font="font:LargeBoldSystemFont" />
-            <Rectangle id="startButton" translation="[67,513]" width="1146" height="77" color="0x13283cff" />
-            <Label id="startLabel" translation="[67,527]" width="1146" height="51" text="INICIAR TREINO" horizAlign="center" color="0xc9d5e1ff" font="font:LargeBoldSystemFont" />
-            <Label translation="[80,633]" width="1120" height="29" text="↑ ↓ navegar    •    ← → ajustar    •    OK iniciar" horizAlign="center" color="0x71869aff" font="font:SmallSystemFont" />
+            <Label translation="[80,70]" width="1120" height="50" text="Configure seu treino" color="0xffffffff" font="dictionary:poppinsSemiBold32" />
+            <Label translation="[81,112]" width="1120" height="31" text="Use as setas para ajustar e pressione OK para selecionar." color="0xb8bdc7ff" font="dictionary:poppinsRegular18" />
+            <Poster id="selection" translation="[67,190]" width="1146" height="77" blendColor="0x0d0d0dff" uri="pkg:/images/rounded-wide.png" />
+            <Label translation="[93,190]" width="433" height="77" text="TEMPO ATIVO" vertAlign="center" color="0xf4f4f4ff" font="dictionary:poppinsSemiBold20" />
+            <Label id="workValue" translation="[693,190]" width="467" height="77" horizAlign="right" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold32" />
+            <Label translation="[93,280]" width="433" height="77" text="INTERVALO" vertAlign="center" color="0xf4f4f4ff" font="dictionary:poppinsSemiBold20" />
+            <Label id="restValue" translation="[693,280]" width="467" height="77" horizAlign="right" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold32" />
+            <Label translation="[93,370]" width="433" height="77" text="REPETIÇÕES" vertAlign="center" color="0xf4f4f4ff" font="dictionary:poppinsSemiBold20" />
+            <Label id="roundsValue" translation="[693,370]" width="467" height="77" horizAlign="right" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold32" />
+            <Poster id="startButton" translation="[67,473]" width="1146" height="77" blendColor="0x0d0d0dff" uri="pkg:/images/rounded-wide.png" />
+            <Label id="startLabel" translation="[67,473]" width="1146" height="77" text="Iniciar treino" horizAlign="center" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold28" />
+            <Label translation="[80,610]" width="1120" height="29" text="↑ ↓ navegar    •    ← → ajustar    •    OK iniciar" horizAlign="center" color="0x8f95a0ff" font="dictionary:poppinsRegular16" />
+            <Animation id="startActiveAnimation" duration="0.18" easeFunction="inOutQuad">
+                <ColorFieldInterpolator key="[0.0,1.0]" keyValue="[0x0d0d0dff,0xde0b37ff]" fieldToInterp="startButton.blendColor" />
+            </Animation>
+            <Animation id="startInactiveAnimation" duration="0.18" easeFunction="inOutQuad">
+                <ColorFieldInterpolator key="[0.0,1.0]" keyValue="[0xde0b37ff,0x0d0d0dff]" fieldToInterp="startButton.blendColor" />
+            </Animation>
         </Group>
 
         <Group id="timerView" visible="false">
-            <Label id="phaseLabel" translation="[80,140]" width="1120" height="48" horizAlign="center" color="0x43e8c0ff" font="font:LargeBoldSystemFont" />
-            <Label id="roundLabel" translation="[80,200]" width="1120" height="36" horizAlign="center" color="0x91a4b7ff" font="font:MediumSystemFont" />
-            <Label id="clockLabel" translation="[80,250]" width="1120" height="153" horizAlign="center" color="0xf7fbffff" font="font:LargeBoldSystemFont" />
-            <Rectangle translation="[173,433]" width="934" height="16" color="0x1d3348ff" />
-            <Rectangle id="progressBar" translation="[173,433]" width="934" height="16" color="0x43e8c0ff" />
-            <Label id="statusLabel" translation="[80,490]" width="1120" height="47" horizAlign="center" color="0xc9d5e1ff" font="font:MediumBoldSystemFont" />
-            <Label translation="[80,633]" width="1120" height="29" text="OK pausar/continuar    •    Voltar cancelar" horizAlign="center" color="0x71869aff" font="font:SmallSystemFont" />
+            <Label id="phaseLabel" translation="[80,140]" width="1120" height="48" horizAlign="center" color="0xde0b37ff" font="dictionary:poppinsSemiBold32" />
+            <Label id="roundLabel" translation="[80,200]" width="1120" height="36" horizAlign="center" color="0xb8bdc7ff" font="dictionary:poppinsRegular20" />
+            <Label id="clockLabel" translation="[80,250]" width="1120" height="153" horizAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold80" />
+            <Rectangle translation="[173,433]" width="934" height="16" color="0x0d0d0dff" />
+            <Rectangle id="progressBar" translation="[173,433]" width="934" height="16" color="0xde0b37ff" />
+            <Label id="statusLabel" translation="[80,490]" width="1120" height="47" horizAlign="center" color="0xf4f4f4ff" font="dictionary:poppinsSemiBold20" />
+            <Label translation="[80,633]" width="1120" height="29" text="OK pausar/continuar    •    Voltar cancelar" horizAlign="center" color="0x8f95a0ff" font="dictionary:poppinsRegular16" />
         </Group>
 
         <Group id="finishedView" visible="false">
-            <Label translation="[80,173]" width="1120" height="67" text="TREINO CONCLUÍDO" horizAlign="center" color="0x43e8c0ff" font="font:LargeBoldSystemFont" />
-            <Label id="summaryLabel" translation="[80,270]" width="1120" height="100" horizAlign="center" vertAlign="center" color="0xf7fbffff" font="font:MediumBoldSystemFont" />
-            <Rectangle translation="[373,433]" width="534" height="75" color="0x43e8c0ff" />
-            <Label translation="[373,447]" width="534" height="48" text="VOLTAR À CONFIGURAÇÃO" horizAlign="center" color="0x07111fff" font="font:MediumBoldSystemFont" />
-            <Label translation="[80,633]" width="1120" height="29" text="Pressione OK ou Voltar" horizAlign="center" color="0x71869aff" font="font:SmallSystemFont" />
+            <Label translation="[80,173]" width="1120" height="67" text="TREINO CONCLUÍDO" horizAlign="center" color="0xde0b37ff" font="dictionary:poppinsSemiBold36" />
+            <Label id="summaryLabel" translation="[80,270]" width="1120" height="100" horizAlign="center" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold22" />
+            <Poster translation="[373,433]" width="534" height="75" blendColor="0xde0b37ff" uri="pkg:/images/rounded-small.png" />
+            <Label translation="[373,433]" width="534" height="75" text="Voltar à configuração" horizAlign="center" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold20" />
+            <Label translation="[80,633]" width="1120" height="29" text="Pressione OK ou Voltar" horizAlign="center" color="0x8f95a0ff" font="dictionary:poppinsRegular16" />
         </Group>
         </Group>
         <Timer id="tickTimer" duration="1" repeat="true" />

@@ -6,6 +6,8 @@ sub init()
     m.selection = m.top.findNode("selection")
     m.startButton = m.top.findNode("startButton")
     m.startLabel = m.top.findNode("startLabel")
+    m.startActiveAnimation = m.top.findNode("startActiveAnimation")
+    m.startInactiveAnimation = m.top.findNode("startInactiveAnimation")
     m.workValue = m.top.findNode("workValue")
     m.restValue = m.top.findNode("restValue")
     m.roundsValue = m.top.findNode("roundsValue")
@@ -31,6 +33,7 @@ sub init()
     m.restSeconds = 15
     m.totalRounds = 5
     m.selectedRow = 0
+    m.startWasSelected = false
     m.mode = "config"
     m.phase = ""
     m.currentRound = 1
@@ -112,16 +115,22 @@ sub updateConfigView()
 end sub
 
 sub updateSelection()
-    rowY = 230 + (m.selectedRow * 90)
+    rowY = 190 + (m.selectedRow * 90)
     m.selection.translation = [67, rowY]
     if m.selectedRow = 3
         m.selection.visible = false
-        m.startButton.color = "0x43e8c0ff"
-        m.startLabel.color = "0x07111fff"
+        if not m.startWasSelected
+            m.startInactiveAnimation.control = "stop"
+            m.startActiveAnimation.control = "start"
+        end if
+        m.startWasSelected = true
     else
         m.selection.visible = true
-        m.startButton.color = "0x13283cff"
-        m.startLabel.color = "0xc9d5e1ff"
+        if m.startWasSelected
+            m.startActiveAnimation.control = "stop"
+            m.startInactiveAnimation.control = "start"
+        end if
+        m.startWasSelected = false
     end if
 end sub
 
@@ -185,15 +194,15 @@ sub updateTimerView()
     if m.phase = "prepare"
         m.phaseLabel.text = "PREPARE-SE"
         m.clockLabel.text = m.remainingSeconds.toStr()
-        m.progressBar.color = "0xffc857ff"
+        m.progressBar.color = "0xde0b37ff"
     else if m.phase = "work"
         m.phaseLabel.text = "ATIVO"
         m.clockLabel.text = formatTime(m.remainingSeconds)
-        m.progressBar.color = "0x43e8c0ff"
+        m.progressBar.color = "0xde0b37ff"
     else
         m.phaseLabel.text = "INTERVALO"
         m.clockLabel.text = formatTime(m.remainingSeconds)
-        m.progressBar.color = "0x5fa8ffff"
+        m.progressBar.color = "0xde0b37ff"
     end if
 
     m.roundLabel.text = "RODADA " + m.currentRound.toStr() + " DE " + m.totalRounds.toStr()
