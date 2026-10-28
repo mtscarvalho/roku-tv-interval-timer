@@ -12,6 +12,8 @@
         <Font id="poppinsSemiBold32" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="32" />
         <Font id="poppinsSemiBold36" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="36" />
         <Font id="poppinsSemiBold80" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="80" />
+        <Font id="poppinsSemiBold160" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="160" />
+        <Font id="poppinsSemiBold220" uri="pkg:/fonts/Poppins-SemiBold.ttf" size="220" />
         <Rectangle width="1280" height="720" color="0x181818ff" />
         <Rectangle width="1280" height="5" color="0xde0b37ff" />
         <Group id="configView">
@@ -36,9 +38,9 @@
         </Group>
 
         <Group id="timerView" visible="false">
-            <Label id="phaseLabel" translation="[80,140]" width="1120" height="48" horizAlign="center" color="0xde0b37ff" font="dictionary:poppinsSemiBold32" />
-            <Label id="roundLabel" translation="[80,200]" width="1120" height="36" horizAlign="center" color="0xb8bdc7ff" font="dictionary:poppinsRegular20" />
-            <Label id="clockLabel" translation="[80,250]" width="1120" height="153" horizAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold80" />
+            <Label id="phaseLabel" translation="[80,55]" width="1120" height="48" horizAlign="center" color="0xde0b37ff" font="dictionary:poppinsSemiBold32" />
+            <Label id="roundLabel" translation="[80,105]" width="1120" height="36" horizAlign="center" color="0xb8bdc7ff" font="dictionary:poppinsRegular20" />
+            <Label id="clockLabel" translation="[80,150]" width="1120" height="230" horizAlign="center" vertAlign="center" color="0xffffffff" font="dictionary:poppinsSemiBold160" />
             <Rectangle translation="[173,433]" width="934" height="16" color="0x0d0d0dff" />
             <Rectangle id="progressBar" translation="[173,433]" width="934" height="16" color="0xde0b37ff" />
             <Label id="statusLabel" translation="[80,490]" width="1120" height="47" horizAlign="center" color="0xf4f4f4ff" font="dictionary:poppinsSemiBold20" />

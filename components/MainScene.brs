@@ -14,6 +14,8 @@ sub init()
     m.phaseLabel = m.top.findNode("phaseLabel")
     m.roundLabel = m.top.findNode("roundLabel")
     m.clockLabel = m.top.findNode("clockLabel")
+    m.clockNormalFont = m.top.findNode("poppinsSemiBold160")
+    m.clockCountdownFont = m.top.findNode("poppinsSemiBold220")
     m.progressBar = m.top.findNode("progressBar")
     m.statusLabel = m.top.findNode("statusLabel")
     m.summaryLabel = m.top.findNode("summaryLabel")
@@ -192,16 +194,31 @@ end sub
 
 sub updateTimerView()
     if m.phase = "prepare"
+        m.phaseLabel.visible = true
         m.phaseLabel.text = "PREPARE-SE"
+        m.roundLabel.translation = [80, 105]
         m.clockLabel.text = m.remainingSeconds.toStr()
+        m.clockLabel.font = m.clockCountdownFont
+        m.clockLabel.translation = [80, 140]
+        m.clockLabel.height = 270
         m.progressBar.color = "0xde0b37ff"
     else if m.phase = "work"
-        m.phaseLabel.text = "ATIVO"
+        m.phaseLabel.visible = false
+        m.phaseLabel.text = ""
+        m.roundLabel.translation = [80, 95]
         m.clockLabel.text = formatTime(m.remainingSeconds)
+        m.clockLabel.font = m.clockNormalFont
+        m.clockLabel.translation = [80, 140]
+        m.clockLabel.height = 240
         m.progressBar.color = "0xde0b37ff"
     else
+        m.phaseLabel.visible = true
         m.phaseLabel.text = "INTERVALO"
+        m.roundLabel.translation = [80, 105]
         m.clockLabel.text = formatTime(m.remainingSeconds)
+        m.clockLabel.font = m.clockNormalFont
+        m.clockLabel.translation = [80, 140]
+        m.clockLabel.height = 240
         m.progressBar.color = "0xde0b37ff"
     end if
 
