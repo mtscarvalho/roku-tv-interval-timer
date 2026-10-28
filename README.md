@@ -8,6 +8,9 @@ Canal Roku SceneGraph para treinos intervalados. O usuário define o tempo ativo
 - intervalo de 0 a 30 minutos, ajustado em passos de 15 segundos;
 - 1 a 99 repetições;
 - contagem sonora de 3 segundos antes de cada rodada;
+- contagem regressiva em tamanho extra grande para visualização à distância;
+- cronômetro ampliado e centralizado para leitura em TVs distantes;
+- sinal sonoro ascendente e mais alto quando a rodada começa;
 - alertas sonoros nos 3 segundos finais de cada fase;
 - som distinto ao encerrar uma rodada;
 - pausa com **OK** e cancelamento com **Voltar**;
