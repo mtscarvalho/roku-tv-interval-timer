@@ -21,11 +21,15 @@ sub init()
     m.summaryLabel = m.top.findNode("summaryLabel")
     m.tickTimer = m.top.findNode("tickTimer")
     m.beepAudio = m.top.findNode("beepAudio")
+    m.startAudio = m.top.findNode("startAudio")
     m.completeAudio = m.top.findNode("completeAudio")
 
     beepContent = CreateObject("roSGNode", "ContentNode")
     beepContent.url = "pkg:/audio/countdown.wav"
     m.beepAudio.content = beepContent
+    startContent = CreateObject("roSGNode", "ContentNode")
+    startContent.url = "pkg:/audio/start.wav"
+    m.startAudio.content = startContent
     completeContent = CreateObject("roSGNode", "ContentNode")
     completeContent.url = "pkg:/audio/complete.wav"
     m.completeAudio.content = completeContent
@@ -175,6 +179,7 @@ end sub
 
 sub advancePhase()
     if m.phase = "prepare"
+        playStart()
         startPhase("work", m.workSeconds)
     else if m.phase = "work"
         playComplete()
@@ -188,7 +193,8 @@ sub advancePhase()
         end if
     else if m.phase = "rest"
         m.currentRound = m.currentRound + 1
-        startPhase("prepare", 3)
+        playStart()
+        startPhase("work", m.workSeconds)
     end if
 end sub
 
@@ -254,6 +260,7 @@ end sub
 sub returnToConfig()
     m.tickTimer.control = "stop"
     m.beepAudio.control = "stop"
+    m.startAudio.control = "stop"
     m.completeAudio.control = "stop"
     m.mode = "config"
     m.isPaused = false
@@ -271,6 +278,11 @@ end sub
 sub playComplete()
     m.completeAudio.control = "stop"
     m.completeAudio.control = "play"
+end sub
+
+sub playStart()
+    m.startAudio.control = "stop"
+    m.startAudio.control = "play"
 end sub
 
 function formatTime(totalSeconds as Integer) as String

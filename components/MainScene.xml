@@ -57,6 +57,7 @@
         </Group>
         <Timer id="tickTimer" duration="1" repeat="true" />
         <Audio id="beepAudio" />
+        <Audio id="startAudio" />
         <Audio id="completeAudio" />
     </children>
 </component>

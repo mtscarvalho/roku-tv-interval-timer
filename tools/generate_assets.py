@@ -87,7 +87,26 @@ def write_rounded_png(path: Path, width: int, height: int, radius: int) -> None:
 
 def main() -> None:
     write_wav(ROOT / "audio/countdown.wav", [(880, 0.11), (0, 0.04)])
-    write_wav(ROOT / "audio/complete.wav", [(660, 0.14), (0, 0.05), (880, 0.2)])
+    write_wav(
+        ROOT / "audio/start.wav",
+        [
+            (880, 0.07),
+            (0, 0.025),
+            (1100, 0.07),
+            (0, 0.025),
+            (1320, 0.07),
+            (0, 0.025),
+            (1560, 0.08),
+            (0, 0.025),
+            (1760, 0.18),
+        ],
+        volume=0.72,
+    )
+    write_wav(
+        ROOT / "audio/complete.wav",
+        [(880, 0.10), (0, 0.04), (1175, 0.12), (0, 0.04), (1568, 0.24)],
+        volume=0.62,
+    )
     write_png(ROOT / "images/icon-focus-hd.png", 290, 218)
     write_png(ROOT / "images/icon-side-hd.png", 108, 81)
     write_png(ROOT / "images/icon-focus-sd.png", 214, 144)
