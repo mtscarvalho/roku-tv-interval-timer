@@ -24,15 +24,6 @@ sub init()
     m.startAudio = m.top.findNode("startAudio")
     m.completeAudio = m.top.findNode("completeAudio")
 
-    beepContent = CreateObject("roSGNode", "ContentNode")
-    beepContent.url = "pkg:/audio/countdown.wav"
-    m.beepAudio.content = beepContent
-    startContent = CreateObject("roSGNode", "ContentNode")
-    startContent.url = "pkg:/audio/start.wav"
-    m.startAudio.content = startContent
-    completeContent = CreateObject("roSGNode", "ContentNode")
-    completeContent.url = "pkg:/audio/complete.wav"
-    m.completeAudio.content = completeContent
     m.tickTimer.observeField("fire", "onTimerTick")
 
     m.workSeconds = 30
@@ -271,17 +262,14 @@ sub returnToConfig()
 end sub
 
 sub playBeep()
-    m.beepAudio.control = "stop"
     m.beepAudio.control = "play"
 end sub
 
 sub playComplete()
-    m.completeAudio.control = "stop"
     m.completeAudio.control = "play"
 end sub
 
 sub playStart()
-    m.startAudio.control = "stop"
     m.startAudio.control = "play"
 end sub
 
@@ -292,4 +280,3 @@ function formatTime(totalSeconds as Integer) as String
     if seconds < 10 then secondsText = "0" + secondsText
     return minutes.toStr() + ":" + secondsText
 end function
-

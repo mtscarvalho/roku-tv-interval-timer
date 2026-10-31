@@ -43,5 +43,4 @@ O arquivo para instalar na Roku será criado em `dist/intervalo-tv.zip`.
 - **OK:** iniciar ou pausar/continuar;
 - **Voltar:** cancelar o treino e retornar à configuração.
 
-Os arquivos de áudio e imagem são pequenos assets locais gerados por `tools/generate_assets.py`, sem dependências externas.
-
+Os ícones, imagens de abertura e o beep da contagem são gerados por `tools/generate_assets.py`, sem dependências externas. Os sons de início e conclusão são os arquivos `audio/start.wav` e `audio/complete.wav` incluídos no projeto.
